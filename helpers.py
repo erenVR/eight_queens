@@ -29,9 +29,10 @@ def initialize_board(n):
 
 
 def print_board(board):
-    n = board.shape[0]
+    n = board.size
     for i in range(n):
         s = ''
         for j in range(n):
-            s = s + str(board[i][j]) + ' '
+            s = s + str(board.board[i][j]) + ' '
         print(s + '\n')
+    print('\n')
