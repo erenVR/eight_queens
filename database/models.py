@@ -1,5 +1,5 @@
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, BigInteger, DECIMAL, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, BigInteger, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 
 Base = declarative_base()
@@ -10,7 +10,6 @@ class BoardDatabase(Base):
 
     id = Column(BigInteger, primary_key=True, autoincrement=True)
     size = Column(Integer)
-    time_to_find_solution = Column(DECIMAL)
     dt_created = Column(DateTime)
     queen_positions = relationship('QueenPosition')
 

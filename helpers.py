@@ -1,4 +1,5 @@
 import numpy as np
+import database.mapper as mapper
 
 
 def validate_queen_number(number):
@@ -36,3 +37,8 @@ def print_board(board):
             s = s + str(board.board[i][j]) + ' '
         print(s + '\n')
     print('\n')
+
+
+def save_board(board, dao):
+    board_db = mapper.map_data_base_board(board)
+    return dao.save_board(board_db)

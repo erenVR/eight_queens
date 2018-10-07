@@ -1,6 +1,6 @@
 import pytest
 from Board import Board
-from database.n_queen_data_access_object import DataAccessObject
+from database.DataAccessBoard import DataAccessBoard
 import database.mapper as mapper
 
 
@@ -13,6 +13,6 @@ import database.mapper as mapper
 def test_database_connection(n, board_sol):
     board = Board(n)
     board.board = board_sol
-    board_db = mapper.map_data_base_board(board, 300)
-    dao = DataAccessObject()
+    board_db = mapper.map_data_base_board(board)
+    dao = DataAccessBoard()
     dao.save_board(board_db)

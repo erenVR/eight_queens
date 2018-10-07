@@ -18,13 +18,27 @@ class Board:
     def queen_share_row(self, row):
         return self.occupied_row[row] > 0
 
-    #Diagonal \
     def queen_share_left_right_diagonal(self, row, col):
+        """
+        Verify if diagonal [1 0]
+                           [0 1]
+         is already used by other queen
+        :param row:
+        :param col:
+        :return:1 if some queen can attack
+        """
         id_diagonal = row + col
         return self.occupied_left_right_diagonal[id_diagonal] > 0
 
-    #Diagonal /
     def queen_share_right_left_diagonal(self, row, col):
+        """
+         Verify if diagonal [0 1]
+                            [1 0]
+         is already used by other queen
+         :param row:
+         :param col:
+         :return:1 if some queen can attack
+         """
         id_diagonal = row - col + self.size - 1
         return self.occupied_right_left_diagonal[id_diagonal] > 0
 

@@ -8,7 +8,7 @@ def main(argv):
     print(f'Number of queens {n}')
     if not h.validate_queen_number(n):
         sys.exit(1)
-    n_queens.iterate_n_n_queen(n)
+    n_queens.n_queens_main(n)
 
 
 if __name__ == "__main__":

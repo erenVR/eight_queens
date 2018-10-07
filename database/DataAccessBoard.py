@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 
-class DataAccessObject:
+class DataAccessBoard:
     def __init__(self):
         engine = create_engine('')
         session = sessionmaker(bind=engine)
@@ -13,4 +13,8 @@ class DataAccessObject:
         self.__session__.commit()
         return board_db.id
 
+    def finish_session(self):
+        self.__session__.close()
 
+    def rollback(self):
+        self.__session__.rollback()
