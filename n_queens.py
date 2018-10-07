@@ -24,7 +24,7 @@ def n_queens_with_time(n):
     print(f'Solutions for N {n}: {board.solutions}')
     time_elapsed = (time.clock() - start_time)/1000
     print(f'Time elapsed {time_elapsed} for N equals to {n}\n Board:\n ')
-    return True
+    return board.solutions
 
 
 def iterate_n_n_queen(n):
