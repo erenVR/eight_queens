@@ -1,5 +1,3 @@
-CREATE DATABASE chess_problems;
-
 CREATE TABLE board
   (
      id         BIGSERIAL NOT NULL CONSTRAINT board_pkey PRIMARY KEY,

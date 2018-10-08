@@ -8,8 +8,9 @@ addons:
 # install dependencies
 install:
   - pip install -r requirements.txt
+#prepare database for unit test
 before_script:
-  #-psql -U postgres -a -f ./database_setup.sql
-  - psql -c 'create database chess_problems;' -U postgres
+  - psql -c 'CREATE DATABASE IF NOT EXISTS chess_problems;' -U postgres
+  - psql -U postgres -d chess_problems -a -f scripts/database_setup.sql
 script:
   - pytest
