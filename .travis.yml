@@ -10,7 +10,7 @@ install:
   - pip install -r requirements.txt
 #prepare database for unit test
 before_script:
-  - psql -c 'CREATE DATABASE IF NOT EXISTS chess_problems;' -U postgres
+  - psql -c 'CREATE DATABASE chess_problems;' -U postgres
   - psql -U postgres -d chess_problems -a -f scripts/database_setup.sql
 script:
   - pytest
