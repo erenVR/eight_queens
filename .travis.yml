@@ -6,5 +6,11 @@ services:
 # install dependencies
 install:
   - pip install -r requirements.txt
+before_script:
+  -psql -c 'CREATE DATABASE chess_problems; ' -U postgres
+  -psql -c 'CREATE TABLE board(id BIGSERIAL NOT NULL CONSTRAINT board_pkey PRIMARY KEY, size INTEGER NOT NULL,dt_created TIMESTAMP NOT NULL); '  -U postgres
+  -psql -c 'CREATE UNIQUE INDEX board_board_id_uindex ON board (id); ' -U postgres
+  -psql -c 'CREATE TABLE queen_position(id BIGSERIAL NOT NULL CONSTRAINT queen_position_pkey PRIMARY KEY,row INTEGER DEFAULT 0 NOT NULL,"column" INTEGER DEFAULT 0 NOT NULL,board_id BIGINT NOT NULL); ' -U postgres
+  -psql -c 'CREATE UNIQUE INDEX queen_position_queen_position_id_uindex ON queen_position (id); ' -U postgres
 script:
   - pytest

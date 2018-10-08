@@ -1,10 +1,20 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import os
+
+
+def __get_database_connection_data__():
+    return 'postgresql://{0}:{1}@{2}/{3}'.format(
+        os.environ.get('DATABASE_USERNAME'),
+        os.environ.get('DATABASE_USERNAME'),
+        os.environ.get('DATABASE_HOST'),
+        os.environ.get('POSTGRESQL_DATABASE'))
 
 
 class DataAccessBoard:
     def __init__(self):
-        engine = create_engine('')
+        connection_string = __get_database_connection_data__()
+        engine = create_engine(connection_string)
         session = sessionmaker(bind=engine)
         self.__session__ = session()
 
