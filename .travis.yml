@@ -3,10 +3,12 @@ python:
   - "3.6"
 services:
   - postgresql
+addons:
+  postgresql: "9.4"
 # install dependencies
 install:
   - pip install -r requirements.txt
 before_script:
-  -psql -U postgres -a -f database_setup.sql
+  -psql -U postgres -a -f ./database_setup.sql
 script:
   - pytest
