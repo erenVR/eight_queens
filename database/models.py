@@ -24,12 +24,12 @@ class QueenPosition(Base):
 
     id = Column(BigInteger, primary_key=True, autoincrement=True)
     row = Column(Integer)
-    column = Column(Integer)
+    col = Column(Integer)
     board_id = Column(BigInteger, ForeignKey('board.id'))
 
     # board = relationship('BoardDatabase', back_populates='queen_positions')
 
     def __repr__(self):
         return f'<queen_position(id={self.id}, row={self.row},' \
-               f' column={self.column}, ' \
+               f' column={self.col}, ' \
                f' board_id={self.board_id}) '

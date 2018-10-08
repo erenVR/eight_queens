@@ -9,7 +9,7 @@ def map_data_base_queen_position(board):
             if board.board[i][j] > 0:
                 queen = model.QueenPosition()
                 queen.row = i
-                queen.column = j
+                queen.col = j
                 array.append(queen)
     return array
 
