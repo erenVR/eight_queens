@@ -9,6 +9,7 @@ addons:
 install:
   - pip install -r requirements.txt
 before_script:
-  -psql -U postgres -a -f ./database_setup.sql
+  #-psql -U postgres -a -f ./database_setup.sql
+  - psql -c 'create database chess_problems;' -U postgres
 script:
   - pytest
