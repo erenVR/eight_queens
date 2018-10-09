@@ -20,7 +20,6 @@ class DataAccessBoard:
 
     def save_board(self, board_db):
         self.__session__.add(board_db)
-        self.__session__.commit()
         return board_db.id
 
     def finish_session(self):
@@ -28,3 +27,6 @@ class DataAccessBoard:
 
     def rollback(self):
         self.__session__.rollback()
+
+    def commit(self):
+        self.__session__.commit()

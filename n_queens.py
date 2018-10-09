@@ -22,6 +22,7 @@ def n_queens_main(n):
     dao = DataAccessBoard.DataAccessBoard()
     try:
         solutions = n_queen_with_time(n, dao)
+        dao.commit()
     except:
         dao.rollback()
         raise

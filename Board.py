@@ -64,6 +64,3 @@ class Board:
 
     def increment_solutions_counter(self):
         self.solutions += 1
-
-    def __str__(self):
-        h.print_board(self.board)
